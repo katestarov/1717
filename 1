@@ -1,0 +1,15 @@
+with open('17-1.txt') as f:
+    mass = list(map(int, f.readlines()))
+summe = 0
+counter = 0
+max_elem = 0
+for i in range(len(mass)):
+    if mass[i] // 10 % 5 == 0 and mass[i] // 10 % 3 != 0 and mass[i] != max(mass):
+        summe += mass[i]
+        counter += 1
+        max_elem = max(max_elem, mass[i])
+average = summe/counter
+if average > 4750:
+    print(summe//counter, 1)
+else:
+    print(summe//counter, 0)
