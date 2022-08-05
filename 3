@@ -1,0 +1,19 @@
+with open('17-3.txt') as f:
+    mass = list(map(int, f.readlines()))
+counter2 = 0 
+flag1 = True 
+for i in range(len(mass)-1):
+    counter2 += 1
+    if counter2 % 2 == 0 and (mass[i] + mass[i+1]) % 2 != 0:
+        flag1 = False 
+
+counter = 0 
+for i in range(len(mass)-2):
+    if mass[i] * mass[i+1] * mass[i+2] >= max(mass):
+        counter += 1
+
+ summe = max(mass) + min(mass)
+if flag1 == True and counter >= 5 and max(mass) > mass[-1] + mass[-2] + mass[-3]:
+    print(summe, 100)
+else:
+    print(summe, 101)
